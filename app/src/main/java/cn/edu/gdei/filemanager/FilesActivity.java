@@ -38,7 +38,7 @@ public class FilesActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_files);
         navigationView.getMenu().getItem(2).setChecked(true);
         navigationView.setNavigationItemSelectedListener(this);
     }
@@ -49,8 +49,6 @@ public class FilesActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-            navigationView.getMenu().getItem(0).setChecked(true);
             super.onBackPressed();
             overridePendingTransition(0, 0);
         }

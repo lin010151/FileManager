@@ -30,9 +30,15 @@ public class MainActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.getMenu().getItem(0).setChecked(true);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_main);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_main);
+        navigationView.getMenu().getItem(0).setChecked(true);
     }
 
     @Override
@@ -61,7 +67,7 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_logout) {
-            startActivity(new Intent(MainActivity.this, WelcomeActivity.class));
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
             finish();
             return true;
         }
