@@ -82,6 +82,9 @@ public class AnnouncementActivity extends AppCompatActivity
             overridePendingTransition(0, 0);
         } else if (id == R.id.nav_settings) {
             startActivity(new Intent(AnnouncementActivity.this, SettingsActivity.class));
+        } else if (id == R.id.nav_logout) {
+            startActivity(new Intent(AnnouncementActivity.this, LoginActivity.class));
+            ActivityCollector.finishAll();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
