@@ -12,9 +12,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ExpandableListView;
 import android.widget.Toast;
 
 import cn.edu.gdei.filemanager.R;
+import cn.edu.gdei.filemanager.util.FileListAdapter;
 
 public class FilesActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -43,6 +45,10 @@ public class FilesActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_files);
         navigationView.getMenu().getItem(2).setChecked(true);
         navigationView.setNavigationItemSelectedListener(this);
+
+        ExpandableListView listView = (ExpandableListView) findViewById(R.id.expandableListView_files);
+        FileListAdapter adapter = new FileListAdapter(this);
+        listView.setAdapter(adapter);
     }
 
     @Override

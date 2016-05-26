@@ -10,12 +10,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import cn.edu.gdei.filemanager.R;
 
 public class AnnouncementActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +42,8 @@ public class AnnouncementActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_announcement);
         navigationView.getMenu().getItem(1).setChecked(true);
         navigationView.setNavigationItemSelectedListener(this);
+
+        setList();
     }
 
     @Override
@@ -90,5 +101,27 @@ public class AnnouncementActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void setList() {
+        listView = (ListView) findViewById(R.id.listView_announcement);
+        ArrayList<HashMap<String, String>> dataMessage = new ArrayList<HashMap<String, String>>();
+        String[] titleArray = new String[]{"Announcement", "Announcement", "Announcement", "Announcement", "Announcement", "Announcement", "Announcement", "Announcement"};
+        String[] subItemArray = new String[]{"1970-01-01", "1970-01-01", "1970-01-01", "1970-01-01", "1970-01-01", "1970-01-01", "1970-01-01", "1970-01-01"};
+        for (int i = 0; i < titleArray.length; i++) {
+            HashMap<String, String> datum = new HashMap<String, String>();
+            datum.put("fileName", titleArray[i]);
+            datum.put("fileTime", subItemArray[i]);
+            dataMessage.add(datum);
+        }
+        SimpleAdapter adapter = new SimpleAdapter(this, dataMessage, android.R.layout.simple_list_item_2, new String[]{"fileName", "fileTime"}, new int[]{android.R.id.text1, android.R.id.text2});
+        listView.setAdapter(adapter);
+        // 添加ListView监听事件
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//
+//            }
+//        });
     }
 }
