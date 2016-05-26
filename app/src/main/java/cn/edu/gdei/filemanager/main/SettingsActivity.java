@@ -1,9 +1,8 @@
-package cn.edu.gdei.filemanager;
+package cn.edu.gdei.filemanager.main;
 
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
@@ -21,6 +20,8 @@ import android.text.TextUtils;
 import android.view.MenuItem;
 
 import java.util.List;
+
+import cn.edu.gdei.filemanager.R;
 
 /**
  * A {@link PreferenceActivity} that presents a set of application settings. On

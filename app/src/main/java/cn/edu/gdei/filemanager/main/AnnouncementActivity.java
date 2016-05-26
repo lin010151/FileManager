@@ -1,4 +1,4 @@
-package cn.edu.gdei.filemanager;
+package cn.edu.gdei.filemanager.main;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,14 +10,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity
+import cn.edu.gdei.filemanager.R;
+
+public class AnnouncementActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_announcement);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -27,15 +30,9 @@ public class MainActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_main);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_announcement);
+        navigationView.getMenu().getItem(1).setChecked(true);
         navigationView.setNavigationItemSelectedListener(this);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_main);
-        navigationView.getMenu().getItem(0).setChecked(true);
     }
 
     @Override
@@ -45,13 +42,14 @@ public class MainActivity extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+            overridePendingTransition(0, 0);
         }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.announcement, menu);
         return true;
     }
 
@@ -63,31 +61,30 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_main_action) {
-            startActivity(new Intent(MainActivity.this, LoginActivity.class));
-            finish();
+        if (id == R.id.action_announcement_search) {
+            // TODO: 2016/5/26 添加搜索活动
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            onBackPressed();
-        } else if (id == R.id.nav_announcement) {
-            startActivity(new Intent(MainActivity.this, AnnouncementActivity.class));
+            finish();
             overridePendingTransition(0, 0);
+        } else if (id == R.id.nav_announcement) {
+            onBackPressed();
         } else if (id == R.id.nav_files) {
-            startActivity(new Intent(MainActivity.this, FilesActivity.class));
+            startActivity(new Intent(AnnouncementActivity.this, FilesActivity.class));
+            finish();
             overridePendingTransition(0, 0);
         } else if (id == R.id.nav_settings) {
-            startActivity(new Intent(MainActivity.this, SettingsActivity.class));
+            startActivity(new Intent(AnnouncementActivity.this, SettingsActivity.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

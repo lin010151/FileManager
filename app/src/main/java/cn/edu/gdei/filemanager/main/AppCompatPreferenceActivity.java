@@ -1,4 +1,4 @@
-package cn.edu.gdei.filemanager;
+package cn.edu.gdei.filemanager.main;
 
 import android.content.res.Configuration;
 import android.os.Bundle;

@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".LoginActivity">
+            android:name=".main.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,38 +22,38 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".main.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".AnnouncementActivity"
+            android:name=".main.AnnouncementActivity"
             android:label="@string/title_activity_announcement"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".main.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".main.MainActivity" />
         </activity>
         <activity
-            android:name=".FilesActivity"
+            android:name=".main.FilesActivity"
             android:label="@string/title_activity_files"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".main.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".main.MainActivity" />
         </activity>
         <activity
-            android:name=".SettingsActivity"
+            android:name=".main.SettingsActivity"
             android:label="@string/title_activity_settings" />
         <activity
-            android:name=".NewFileActivity"
+            android:name=".main.NewFileActivity"
             android:label="@string/title_activity_new_file"
-            android:parentActivityName=".FilesActivity"
+            android:parentActivityName=".main.FilesActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="cn.edu.gdei.filemanager.FilesActivity" />
+                android:value=".main.FilesActivity" />
         </activity>
     </application>
 
