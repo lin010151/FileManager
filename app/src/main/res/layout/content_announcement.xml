@@ -9,7 +9,7 @@
     tools:showIn="@layout/app_bar_announcement">
 
     <ListView
-        android:id="@+id/listView_announcement"
+        android:id="@+id/list_view_announcement"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </RelativeLayout>

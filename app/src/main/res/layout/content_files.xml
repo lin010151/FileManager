@@ -9,7 +9,7 @@
     tools:showIn="@layout/app_bar_files">
 
     <ExpandableListView
-        android:id="@+id/expandableListView_files"
+        android:id="@+id/list_view_files"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 </RelativeLayout>

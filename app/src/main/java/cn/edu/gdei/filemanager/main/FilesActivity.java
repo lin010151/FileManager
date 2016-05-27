@@ -9,14 +9,22 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import cn.edu.gdei.filemanager.R;
-import cn.edu.gdei.filemanager.util.FileListAdapter;
+import cn.edu.gdei.filemanager.util.DisplayUtil;
+import cn.edu.gdei.filemanager.Dummy.FileItem;
+import cn.edu.gdei.filemanager.widget.ExpandableListAdapter;
 
 public class FilesActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -46,10 +54,35 @@ public class FilesActivity extends AppCompatActivity
         navigationView.getMenu().getItem(2).setChecked(true);
         navigationView.setNavigationItemSelectedListener(this);
 
-        ExpandableListView listView = (ExpandableListView) findViewById(R.id.expandableListView_files);
-        FileListAdapter adapter = new FileListAdapter(this);
-        listView.setAdapter(adapter);
+        // TODO: 2016/5/27 分离下面语句
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        int width = metrics.widthPixels;
+
+        Map<String, List<FileItem>> files = new HashMap<>();
+        FileItem fileItem = new FileItem("Title", "Hint", "Author", "Time");
+        List<FileItem> fileItems = new ArrayList<>();
+        for (int i = 0; i < 4; i++) {
+            fileItems.add(fileItem);
+            files.put("Category " + i, fileItems);
+        }
+
+        ExpandableListView expandableListView = (ExpandableListView) findViewById(R.id.list_view_files);
+        ExpandableListAdapter expandableListAdapter = new ExpandableListAdapter(this, files);
+        if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN_MR2) {
+            expandableListView.setIndicatorBounds(width - DisplayUtil.dip2px(this, 50), width);
+        } else {
+            expandableListView.setIndicatorBoundsRelative(width - DisplayUtil.dip2px(this, 50), width);
+        }
+        expandableListView.setAdapter(expandableListAdapter);
+        expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+                return false;
+            }
+        });
     }
+
 
     @Override
     public void onBackPressed() {
@@ -110,4 +143,5 @@ public class FilesActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }
