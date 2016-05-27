@@ -28,14 +28,12 @@ import cn.edu.gdei.filemanager.widget.ExpandableListAdapter;
 
 public class FilesActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_files);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_new);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,22 +41,18 @@ public class FilesActivity extends AppCompatActivity
                 startActivity(new Intent(FilesActivity.this, NewFileActivity.class));
             }
         });
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_files);
         navigationView.getMenu().getItem(2).setChecked(true);
         navigationView.setNavigationItemSelectedListener(this);
-
         // TODO: 2016/5/27 分离下面语句
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
         int width = metrics.widthPixels;
-
         Map<String, List<FileItem>> files = new HashMap<>();
         FileItem fileItem = new FileItem("Title", "Hint", "Author", "Time");
         List<FileItem> fileItems = new ArrayList<>();
@@ -66,10 +60,9 @@ public class FilesActivity extends AppCompatActivity
             fileItems.add(fileItem);
             files.put("Category " + i, fileItems);
         }
-
         ExpandableListView expandableListView = (ExpandableListView) findViewById(R.id.list_view_files);
         ExpandableListAdapter expandableListAdapter = new ExpandableListAdapter(this, files);
-        if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN_MR2) {
+        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN_MR2) {
             expandableListView.setIndicatorBounds(width - DisplayUtil.dip2px(this, 50), width);
         } else {
             expandableListView.setIndicatorBoundsRelative(width - DisplayUtil.dip2px(this, 50), width);
@@ -78,11 +71,11 @@ public class FilesActivity extends AppCompatActivity
         expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-                return false;
+                startActivity(new Intent(FilesActivity.this, FileContentActivity.class));
+                return true;
             }
         });
     }
-
 
     @Override
     public void onBackPressed() {
@@ -97,19 +90,13 @@ public class FilesActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.files, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_files_action) {
             return true;
         } else if (id == R.id.action_files_search) {
@@ -117,15 +104,12 @@ public class FilesActivity extends AppCompatActivity
             Toast.makeText(this, "Search", Toast.LENGTH_SHORT).show();
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
-
         if (id == R.id.nav_home) {
             finish();
             overridePendingTransition(0, 0);
@@ -138,7 +122,6 @@ public class FilesActivity extends AppCompatActivity
         } else if (id == R.id.nav_settings) {
             startActivity(new Intent(FilesActivity.this, SettingsActivity.class));
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

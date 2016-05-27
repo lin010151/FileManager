@@ -2,6 +2,8 @@ package cn.edu.gdei.filemanager.main;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -19,6 +21,8 @@ import cn.edu.gdei.filemanager.R;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    MenuItem refreshItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,6 +107,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void refresh(MenuItem refreshItem) {
+        this.refreshItem = refreshItem;
         completeRefresh(refreshItem);
         ImageView iv = (ImageView) getLayoutInflater().inflate(R.layout.refresh_action_view, null);
         refreshItem.setActionView(iv);
@@ -111,11 +116,9 @@ public class MainActivity extends AppCompatActivity
         rotation.setRepeatCount(Animation.INFINITE);
         iv.startAnimation(rotation);
         refreshItem.setActionView(iv);
-
         // TODO: 2016/5/26 刷新内容
     }
 
-    // 停止刷新动画
     public void completeRefresh(MenuItem refreshItem) {
         if (refreshItem != null) {
             View view = refreshItem.getActionView();

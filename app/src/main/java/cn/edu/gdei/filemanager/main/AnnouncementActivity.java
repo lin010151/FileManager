@@ -51,7 +51,7 @@ public class AnnouncementActivity extends AppCompatActivity
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                startActivity(new Intent(AnnouncementActivity.this, AnnouncementContentActivity.class));
             }
         });
     }
@@ -69,19 +69,13 @@ public class AnnouncementActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.announcement, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_announcement_search) {
             // TODO: 2016/5/26 添加搜索活动
             return true;
@@ -92,9 +86,7 @@ public class AnnouncementActivity extends AppCompatActivity
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
-
         if (id == R.id.nav_home) {
             finish();
             overridePendingTransition(0, 0);
@@ -107,7 +99,6 @@ public class AnnouncementActivity extends AppCompatActivity
         } else if (id == R.id.nav_settings) {
             startActivity(new Intent(AnnouncementActivity.this, SettingsActivity.class));
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

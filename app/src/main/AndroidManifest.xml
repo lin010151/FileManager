@@ -13,8 +13,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".main.LoginActivity">
+        <activity android:name=".main.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -54,6 +53,23 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".main.FilesActivity" />
+        </activity>
+        <activity
+            android:name=".main.FileContentActivity"
+            android:label="@string/title_activity_file_content"
+            android:parentActivityName=".main.FilesActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cn.edu.gdei.filemanager.main.FilesActivity" />
+        </activity>
+        <activity
+            android:name=".main.AnnouncementContentActivity"
+            android:label="@string/title_activity_announcement_content"
+            android:parentActivityName=".main.AnnouncementActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cn.edu.gdei.filemanager.main.AnnouncementActivity" />
         </activity>
     </application>
 
