@@ -13,14 +13,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
-import cn.edu.gdei.filemanager.Dummy.AnnouncementItem;
+import cn.edu.gdei.filemanager.item.AnnouncementItem;
 import cn.edu.gdei.filemanager.R;
 import cn.edu.gdei.filemanager.widget.ListAdapter;
 

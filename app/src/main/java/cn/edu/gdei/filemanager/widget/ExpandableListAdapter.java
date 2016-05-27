@@ -12,7 +12,7 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
 import cn.edu.gdei.filemanager.R;
-import cn.edu.gdei.filemanager.Dummy.FileItem;
+import cn.edu.gdei.filemanager.item.FileItem;
 
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
     private Context context = null;

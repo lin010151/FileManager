@@ -23,7 +23,7 @@ import java.util.Map;
 
 import cn.edu.gdei.filemanager.R;
 import cn.edu.gdei.filemanager.util.DisplayUtil;
-import cn.edu.gdei.filemanager.Dummy.FileItem;
+import cn.edu.gdei.filemanager.item.FileItem;
 import cn.edu.gdei.filemanager.widget.ExpandableListAdapter;
 
 public class FilesActivity extends AppCompatActivity

@@ -1,16 +1,13 @@
-package cn.edu.gdei.filemanager.Dummy;
+package cn.edu.gdei.filemanager.item;
 
-public class FileItem {
-
+public class AnnouncementItem {
     private String title;
     private String hint;
-    private String author;
     private String time;
 
-    public FileItem(String title, String hint, String author, String time) {
+    public AnnouncementItem(String title, String hint, String time) {
         this.title = title;
         this.hint = hint;
-        this.author = author;
         this.time = time;
     }
 
@@ -28,14 +25,6 @@ public class FileItem {
 
     public void setHint(String hint) {
         this.hint = hint;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
     }
 
     public String getTime() {

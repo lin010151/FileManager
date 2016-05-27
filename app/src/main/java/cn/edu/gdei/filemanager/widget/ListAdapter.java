@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import cn.edu.gdei.filemanager.Dummy.AnnouncementItem;
+import cn.edu.gdei.filemanager.item.AnnouncementItem;
 import cn.edu.gdei.filemanager.R;
 
 public class ListAdapter extends BaseAdapter {
