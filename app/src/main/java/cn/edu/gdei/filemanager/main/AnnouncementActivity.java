@@ -7,19 +7,19 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.edu.gdei.filemanager.item.AnnouncementItem;
 import cn.edu.gdei.filemanager.R;
-import cn.edu.gdei.filemanager.widget.ListAdapter;
+import cn.edu.gdei.filemanager.adapter.AnnouncementListAdapter;
+import cn.edu.gdei.filemanager.item.AnnouncementItem;
+import cn.edu.gdei.filemanager.widget.DividerItemDecoration;
 
 public class AnnouncementActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -41,19 +41,16 @@ public class AnnouncementActivity extends AppCompatActivity
         navigationView.getMenu().getItem(1).setChecked(true);
         navigationView.setNavigationItemSelectedListener(this);
 
+        RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view_announcement);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        AnnouncementListAdapter mAdapter = new AnnouncementListAdapter(this);
         List<AnnouncementItem> list = new ArrayList<>();
-        AnnouncementItem item = new AnnouncementItem("Title", "Hint", "Time");
-        for (int i = 0; i < 8; i++) {
-            list.add(item);
+        for (int i = 0; i < 10; i++) {
+            list.add(new AnnouncementItem("Title", "Hint", "Time"));
         }
-        ListView listView = (ListView) findViewById(R.id.list_view_announcement);
-        listView.setAdapter(new ListAdapter(AnnouncementActivity.this, list));
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                startActivity(new Intent(AnnouncementActivity.this, AnnouncementContentActivity.class));
-            }
-        });
+        mAdapter.addItems(list);
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
+        mRecyclerView.setAdapter(mAdapter);
     }
 
     @Override

@@ -8,8 +8,10 @@
     tools:context=".main.AnnouncementActivity"
     tools:showIn="@layout/app_bar_announcement">
 
-    <ListView
-        android:id="@+id/list_view_announcement"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view_announcement"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item_announcement" />
+
 </RelativeLayout>
