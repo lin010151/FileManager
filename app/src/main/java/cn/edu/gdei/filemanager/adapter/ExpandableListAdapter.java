@@ -1,4 +1,4 @@
-package cn.edu.gdei.filemanager.widget;
+package cn.edu.gdei.filemanager.adapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,12 +42,12 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
         ChildViewHolder holder;
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.item_file, parent, false);
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_files, parent, false);
             holder = new ChildViewHolder();
-            holder.title = (TextView) convertView.findViewById(R.id.title);
-            holder.hint = (TextView) convertView.findViewById(R.id.hint);
-            holder.author = (TextView) convertView.findViewById(R.id.author);
-            holder.time = (TextView) convertView.findViewById(R.id.time);
+            holder.title = (TextView) convertView.findViewById(R.id.file_title);
+            holder.hint = (TextView) convertView.findViewById(R.id.file_hint);
+            holder.author = (TextView) convertView.findViewById(R.id.file_author);
+            holder.time = (TextView) convertView.findViewById(R.id.file_time);
             convertView.setTag(holder);
         }
         holder = (ChildViewHolder) convertView.getTag();
