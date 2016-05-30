@@ -57,9 +57,9 @@ public class AnnouncementListAdapter extends RecyclerView.Adapter<AnnouncementLi
 
         public ViewHolder(View itemView) {
             super(itemView);
-            title = (TextView) itemView.findViewById(R.id.announcement_title);
-            hint = (TextView) itemView.findViewById(R.id.announcement_hint);
-            time = (TextView) itemView.findViewById(R.id.announcement_time);
+            title = (TextView) itemView.findViewById(R.id.title_announcement);
+            hint = (TextView) itemView.findViewById(R.id.hint_announcement);
+            time = (TextView) itemView.findViewById(R.id.time_announcement);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

@@ -2,6 +2,7 @@ package cn.edu.gdei.filemanager.main;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -24,6 +25,8 @@ import cn.edu.gdei.filemanager.widget.DividerItemDecoration;
 public class AnnouncementActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private AnnouncementListAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,16 +44,16 @@ public class AnnouncementActivity extends AppCompatActivity
         navigationView.getMenu().getItem(1).setChecked(true);
         navigationView.setNavigationItemSelectedListener(this);
 
-        RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view_announcement);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        AnnouncementListAdapter mAdapter = new AnnouncementListAdapter(this);
-        List<AnnouncementItem> list = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            list.add(new AnnouncementItem("Title", "Hint", "Time"));
+        List<AnnouncementItem> items = new ArrayList<>();
+        for (int i = 0; i < 20; i++) {
+            items.add(new AnnouncementItem("Title", "Hint", "Time"));
         }
-        mAdapter.addItems(list);
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
-        mRecyclerView.setAdapter(mAdapter);
+        adapter = new AnnouncementListAdapter(this);
+        adapter.addItems(items);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view_announcement);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
+        recyclerView.setAdapter(adapter);
     }
 
     @Override

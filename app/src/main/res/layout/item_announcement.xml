@@ -11,7 +11,7 @@
     android:paddingStart="16dp">
 
     <TextView
-        android:id="@+id/announcement_title"
+        android:id="@+id/title_announcement"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
         android:ellipsize="end"
@@ -20,7 +20,7 @@
         android:textAppearance="?android:attr/textAppearanceListItem" />
 
     <TextView
-        android:id="@+id/announcement_time"
+        android:id="@+id/time_announcement"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
         android:layout_alignParentEnd="true"
@@ -29,10 +29,10 @@
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
-        android:id="@+id/announcement_hint"
+        android:id="@+id/hint_announcement"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
-        android:layout_below="@+id/announcement_title"
+        android:layout_below="@+id/title_announcement"
         android:ellipsize="end"
         android:singleLine="true"
         android:textAppearance="?android:attr/textAppearanceSmall" />

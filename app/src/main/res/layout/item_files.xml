@@ -2,31 +2,34 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="88dp"
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
     android:paddingEnd="16dp"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingStart="16dp">
 
     <TextView
-        android:id="@+id/file_title"
+        android:id="@+id/title_file"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/file_hint"
+        android:layout_above="@+id/hint_file"
         android:ellipsize="end"
         android:singleLine="true"
         android:textAppearance="?android:attr/textAppearanceLargePopupMenu" />
 
     <TextView
-        android:id="@+id/file_time"
+        android:id="@+id/time_file"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/file_hint"
+        android:layout_above="@+id/hint_file"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
-        android:id="@+id/file_hint"
+        android:id="@+id/hint_file"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
@@ -35,10 +38,10 @@
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
-        android:id="@+id/file_author"
+        android:id="@+id/author_file"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/file_hint"
+        android:layout_below="@+id/hint_file"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
 </RelativeLayout>
