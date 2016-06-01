@@ -31,6 +31,6 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:src="@drawable/ic_fab_add"
-        app:layout_behavior="cn.edu.gdei.filemanager.widget.ScrollingFABBehavior"/>
+        app:layout_behavior="cn.edu.gdei.filemanager.widget.ScrollingFABBehavior" />
 
 </android.support.design.widget.CoordinatorLayout>
