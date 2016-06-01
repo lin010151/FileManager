@@ -1,7 +1,9 @@
 package cn.edu.gdei.filemanager.main;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -45,7 +47,26 @@ public class NewFileActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_newfile_done) {
-            // TODO: 2016/5/26 添加确认活动
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("Confirm?");
+            builder.setCancelable(true);
+            builder.setPositiveButton(
+                    "Yes",
+                    new DialogInterface.OnClickListener() {
+                        // TODO: 2016/6/2 确认提交
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+            builder.setNegativeButton(
+                    "No",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+            AlertDialog alert = builder.create();
+            alert.show();
             return true;
         }
 
