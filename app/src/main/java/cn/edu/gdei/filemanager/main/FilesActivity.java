@@ -55,14 +55,18 @@ public class FilesActivity extends AppCompatActivity
         navigationView.getMenu().getItem(2).setChecked(true);
         navigationView.setNavigationItemSelectedListener(this);
 
+        // TODO: 2016/6/2 获取档案列表
         List<FileItem> items = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 3; i++) {
             items.add(new FileItem("Title", "Hint", "Author", "Time"));
         }
         List<FileCategory> categories = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
-            categories.add(new FileCategory(items, "Category"));
-        }
+        categories.add(new FileCategory(items, "Failed"));
+        categories.add(new FileCategory(items, "Pending"));
+        categories.add(new FileCategory(items, "Auditing"));
+        categories.add(new FileCategory(items, "Audited"));
+
+        // TODO: 2016/6/2 初次显示数据
         adapter = new FileListAdapter(this, categories);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list_view_files);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
