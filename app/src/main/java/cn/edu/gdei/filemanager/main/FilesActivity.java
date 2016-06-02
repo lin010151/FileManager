@@ -1,5 +1,7 @@
 package cn.edu.gdei.filemanager.main;
 
+import android.animation.ObjectAnimator;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,6 +10,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -94,10 +97,14 @@ public class FilesActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_files_action) {
+        if (id == R.id.action_files_refresh) {
+            // TODO: 2016/6/2 刷新
             return true;
         } else if (id == R.id.action_files_search) {
-            // TODO: 2016/5/26 添加搜索活动
+            // TODO: 2016/5/26 搜索
+            return true;
+        } else if (id == R.id.action_files_sort) {
+            // TODO: 2016/6/2 排序
             return true;
         }
         return super.onOptionsItemSelected(item);

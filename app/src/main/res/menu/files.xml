@@ -2,12 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_files_action"
+        android:id="@+id/action_files_refresh"
         android:title="@string/action_refresh"
         app:showAsAction="never" />
     <item
-        android:id="@+id/action_files_sortby"
-        android:title="@string/action_sortby"
+        android:id="@+id/action_files_sort"
+        android:title="@string/action_sort"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_files_search"
