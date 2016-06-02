@@ -1,19 +1,28 @@
 package cn.edu.gdei.filemanager.main;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ExpandableListView;
+
+import com.bignerdranch.expandablerecyclerview.Adapter.ExpandableRecyclerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,9 +34,11 @@ import cn.edu.gdei.filemanager.item.FileItem;
 import cn.edu.gdei.filemanager.widget.DividerItemDecoration;
 
 public class FilesActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, ExpandableRecyclerAdapter.ExpandCollapseListener {
 
     private FileListAdapter adapter;
+    private LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+    private FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +46,7 @@ public class FilesActivity extends AppCompatActivity
         setContentView(R.layout.activity_files);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_new);
+        fab = (FloatingActionButton) findViewById(R.id.fab_new);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,8 +76,18 @@ public class FilesActivity extends AppCompatActivity
         // TODO: 2016/6/2 初次显示数据
         adapter = new FileListAdapter(this, categories);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list_view_files);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(layoutManager);
+        adapter.setExpandCollapseListener(this);
         recyclerView.setAdapter(adapter);
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                if (dy > 0)
+                    fab.hide();
+                else if (dy < 0)
+                    fab.show();
+            }
+        });
     }
 
     @Override
@@ -97,6 +118,24 @@ public class FilesActivity extends AppCompatActivity
             return true;
         } else if (id == R.id.action_files_sort) {
             // TODO: 2016/6/2 排序
+            String[] fileList = {"Title", "Author", "Statue", "Time"};
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Sort By:");
+            builder.setSingleChoiceItems(fileList, -1, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int whichButton) {
+
+                }
+            });
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int whichButton) {
+                }
+            });
+            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int whichButton) {
+                }
+            });
+            AlertDialog alert = builder.create();
+            alert.show();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -120,5 +159,15 @@ public class FilesActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onListItemExpanded(int position) {
+        fab.show();
+    }
+
+    @Override
+    public void onListItemCollapsed(int position) {
+        fab.show();
     }
 }

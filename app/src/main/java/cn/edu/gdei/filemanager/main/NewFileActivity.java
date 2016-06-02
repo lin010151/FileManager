@@ -48,6 +48,7 @@ public class NewFileActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_newfile_done) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Warning");
             builder.setMessage("Confirm?");
             builder.setCancelable(true);
             builder.setPositiveButton(
