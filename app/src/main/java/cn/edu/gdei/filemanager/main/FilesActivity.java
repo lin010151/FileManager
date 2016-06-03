@@ -3,8 +3,6 @@ package cn.edu.gdei.filemanager.main;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,12 +13,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ExpandableListView;
 
 import com.bignerdranch.expandablerecyclerview.Adapter.ExpandableRecyclerAdapter;
 
@@ -31,7 +26,6 @@ import cn.edu.gdei.filemanager.R;
 import cn.edu.gdei.filemanager.adapter.FileListAdapter;
 import cn.edu.gdei.filemanager.item.FileCategory;
 import cn.edu.gdei.filemanager.item.FileItem;
-import cn.edu.gdei.filemanager.widget.DividerItemDecoration;
 
 public class FilesActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, ExpandableRecyclerAdapter.ExpandCollapseListener {

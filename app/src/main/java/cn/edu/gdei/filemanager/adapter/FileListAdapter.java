@@ -1,11 +1,19 @@
 package cn.edu.gdei.filemanager.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.content.res.TypedArray;
+import android.graphics.drawable.StateListDrawable;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.RotateAnimation;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bignerdranch.expandablerecyclerview.Adapter.ExpandableRecyclerAdapter;
@@ -58,15 +66,56 @@ public class FileListAdapter extends ExpandableRecyclerAdapter<FileListAdapter.F
 
     public class FileCategoryViewHolder extends ParentViewHolder {
 
+        private static final float INITIAL_POSITION = 0.0f;
+        private static final float ROTATED_POSITION = 180f;
+
         private TextView category;
+        private final ImageView indicator;
 
         public FileCategoryViewHolder(View itemView) {
             super(itemView);
             category = (TextView) itemView.findViewById(R.id.category_file);
+            indicator = (ImageView) itemView.findViewById(R.id.indicator);
         }
 
         public void bind(FileCategory category) {
             this.category.setText(category.getCategory());
+        }
+
+        @SuppressLint("NewApi")
+        @Override
+        public void setExpanded(boolean expanded) {
+            super.setExpanded(expanded);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+                if (expanded) {
+                    indicator.setRotation(ROTATED_POSITION);
+                } else {
+                    indicator.setRotation(INITIAL_POSITION);
+                }
+            }
+        }
+
+        @Override
+        public void onExpansionToggled(boolean expanded) {
+            super.onExpansionToggled(expanded);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+                RotateAnimation rotateAnimation;
+                if (expanded) {
+                    rotateAnimation = new RotateAnimation(ROTATED_POSITION,
+                            INITIAL_POSITION,
+                            RotateAnimation.RELATIVE_TO_SELF, 0.5f,
+                            RotateAnimation.RELATIVE_TO_SELF, 0.5f);
+                } else {
+                    rotateAnimation = new RotateAnimation(-1 * ROTATED_POSITION,
+                            INITIAL_POSITION,
+                            RotateAnimation.RELATIVE_TO_SELF, 0.5f,
+                            RotateAnimation.RELATIVE_TO_SELF, 0.5f);
+                }
+
+                rotateAnimation.setDuration(200);
+                rotateAnimation.setFillAfter(true);
+                indicator.startAnimation(rotateAnimation);
+            }
         }
     }
 

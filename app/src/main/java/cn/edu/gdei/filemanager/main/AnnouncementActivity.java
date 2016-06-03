@@ -2,7 +2,6 @@ package cn.edu.gdei.filemanager.main;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -20,7 +19,6 @@ import java.util.List;
 import cn.edu.gdei.filemanager.R;
 import cn.edu.gdei.filemanager.adapter.AnnouncementListAdapter;
 import cn.edu.gdei.filemanager.item.AnnouncementItem;
-import cn.edu.gdei.filemanager.widget.DividerItemDecoration;
 
 public class AnnouncementActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
