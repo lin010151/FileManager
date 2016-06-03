@@ -3,12 +3,8 @@ package cn.edu.gdei.filemanager.adapter;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
-import android.content.res.TypedArray;
-import android.graphics.drawable.StateListDrawable;
 import android.os.Build;
 import android.support.annotation.NonNull;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +22,6 @@ import java.util.List;
 import cn.edu.gdei.filemanager.R;
 import cn.edu.gdei.filemanager.item.FileCategory;
 import cn.edu.gdei.filemanager.item.FileItem;
-import cn.edu.gdei.filemanager.main.AnnouncementContentActivity;
 import cn.edu.gdei.filemanager.main.FileContentActivity;
 
 public class FileListAdapter extends ExpandableRecyclerAdapter<FileListAdapter.FileCategoryViewHolder, FileListAdapter.FileViewHolder> {

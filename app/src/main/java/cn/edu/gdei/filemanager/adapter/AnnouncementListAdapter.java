@@ -3,22 +3,19 @@ package cn.edu.gdei.filemanager.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import cn.edu.gdei.filemanager.R;
 import cn.edu.gdei.filemanager.item.AnnouncementItem;
-import cn.edu.gdei.filemanager.main.AnnouncementActivity;
 import cn.edu.gdei.filemanager.main.AnnouncementContentActivity;
 
-public class AnnouncementListAdapter extends RecyclerView.Adapter<AnnouncementListAdapter.ViewHolder>{
+public class AnnouncementListAdapter extends RecyclerView.Adapter<AnnouncementListAdapter.ViewHolder> {
     private final Context context;
     private final ArrayList<AnnouncementItem> list;
 
