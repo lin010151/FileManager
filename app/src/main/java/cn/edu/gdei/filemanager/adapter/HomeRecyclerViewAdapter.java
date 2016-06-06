@@ -41,7 +41,6 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
             title = (TextView) itemView.findViewById(R.id.card_announcement_img_title);
             hint = (TextView) itemView.findViewById(R.id.card_announcement_img_hint);
             btnMore = (Button) itemView.findViewById(R.id.card_announcement_btn_more);
-            title.setBackgroundColor(Color.argb(20, 0, 0, 0));
         }
     }
 
@@ -68,8 +67,7 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
         personViewHolder.btnMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, AnnouncementActivity.class);
-                context.startActivity(intent);
+                context.startActivity(new Intent(context, AnnouncementActivity.class));
             }
         });
     }
