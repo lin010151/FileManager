@@ -69,7 +69,7 @@ public class FilesActivity extends AppCompatActivity
 
         // TODO: 2016/6/2 初次显示数据
         adapter = new FileListAdapter(this, categories);
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list_view_files);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView_files);
         recyclerView.setLayoutManager(layoutManager);
         adapter.setExpandCollapseListener(this);
         recyclerView.setAdapter(adapter);

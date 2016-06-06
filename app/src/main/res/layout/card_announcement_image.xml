@@ -1,5 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/card_view_announcement_normal"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content" />
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/activity_horizontal_margin"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/announcement_img_head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/card_announcement_img_img"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/side_nav_bar"/>
+
+            <TextView
+                android:id="@+id/card_announcement_img_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:gravity="center|start"
+                android:padding="@dimen/nav_header_vertical_spacing"
+                android:textColor="#ffffff"
+                android:textSize="24sp"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/card_announcement_img_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/announcement_img_head"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:padding="16dp"
+            android:textSize="14sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/card_announcement_img_hint"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/card_announcement_btn_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="More"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

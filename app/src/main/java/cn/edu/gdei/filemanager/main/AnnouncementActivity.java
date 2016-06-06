@@ -48,7 +48,7 @@ public class AnnouncementActivity extends AppCompatActivity
         }
         adapter = new AnnouncementListAdapter(this);
         adapter.addItems(items);
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view_announcement);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView_announcement);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(adapter);
     }
