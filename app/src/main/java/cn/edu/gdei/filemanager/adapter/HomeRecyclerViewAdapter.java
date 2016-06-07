@@ -37,11 +37,11 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
 
         public NewsViewHolder(final View itemView) {
             super(itemView);
-            cardView = (CardView) itemView.findViewById(R.id.card_view_announcement_normal);
+            cardView = (CardView) itemView.findViewById(R.id.card_view_announcement_img);
             image = (ImageView) itemView.findViewById(R.id.card_announcement_img_img);
             title = (TextView) itemView.findViewById(R.id.card_announcement_img_title);
             hint = (TextView) itemView.findViewById(R.id.card_announcement_img_hint);
-            btnMore = (Button) itemView.findViewById(R.id.card_announcement_btn_more);
+            btnMore = (Button) itemView.findViewById(R.id.card_announcement_img_btn_more);
         }
     }
 

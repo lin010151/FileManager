@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/card_view_announcement_normal"
+    android:id="@+id/card_view_announcement_img"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/activity_horizontal_margin"
@@ -33,8 +33,7 @@
                 android:layout_alignParentStart="true"
                 android:gravity="center|start"
                 android:padding="@dimen/nav_header_vertical_spacing"
-                android:textColor="#ffffff"
-                android:textSize="24sp"/>
+                android:textAppearance="?android:attr/textAppearanceLargeInverse"/>
         </RelativeLayout>
 
         <TextView
@@ -44,8 +43,8 @@
             android:layout_below="@+id/announcement_img_head"
             android:ellipsize="end"
             android:maxLines="2"
-            android:padding="16dp"
-            android:textSize="14sp"/>
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:padding="16dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -54,7 +53,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/card_announcement_btn_more"
+                android:id="@+id/card_announcement_img_btn_more"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
