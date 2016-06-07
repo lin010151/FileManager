@@ -17,6 +17,7 @@ import java.util.List;
 import cn.edu.gdei.filemanager.R;
 import cn.edu.gdei.filemanager.item.HomeAnnouncementItem;
 import cn.edu.gdei.filemanager.main.AnnouncementActivity;
+import cn.edu.gdei.filemanager.main.AnnouncementContentActivity;
 
 public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerViewAdapter.NewsViewHolder> {
     private List<HomeAnnouncementItem> list;
@@ -56,11 +57,10 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
         personViewHolder.image.setImageResource(list.get(i).getImageId());
         personViewHolder.title.setText(list.get(i).getTitle());
         personViewHolder.hint.setText(list.get(i).getHint());
-
         personViewHolder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                context.startActivity(new Intent(context, AnnouncementContentActivity.class));
             }
         });
 
