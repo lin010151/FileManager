@@ -7,15 +7,15 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_menu_home"
-            android:title="Home" />
+            android:title="@string/title_activity_main" />
         <item
             android:id="@+id/nav_announcement"
             android:icon="@drawable/ic_menu_announcement"
-            android:title="Announcement" />
+            android:title="@string/title_activity_announcement" />
         <item
             android:id="@+id/nav_files"
             android:icon="@drawable/ic_menu_file"
-            android:title="Files" />
+            android:title="@string/title_activity_files" />
     </group>
 
     <group
@@ -24,11 +24,11 @@
         <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/ic_menu_settings"
-            android:title="Settings" />
+            android:title="@string/title_activity_settings" />
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/ic_menu_logout"
-            android:title="Logout" />
+            android:title="@string/title_activity_login" />
     </group>
 
 </menu>
