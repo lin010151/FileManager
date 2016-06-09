@@ -42,10 +42,20 @@ public class AnnouncementActivity extends AppCompatActivity
         navigationView.getMenu().getItem(1).setChecked(true);
         navigationView.setNavigationItemSelectedListener(this);
 
+        String[] announcementTitle = getResources().getStringArray(R.array.announcement_title);
+        String[] announcementHint = getResources().getStringArray(R.array.announcement_hint);
+        String[] announcementTime = getResources().getStringArray(R.array.announcement_time);
         List<AnnouncementItem> items = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
-            items.add(new AnnouncementItem("Title", "Hint", "Time", 1));
+        for (int i = 0; i < announcementTitle.length; i++) {
+            items.add(new AnnouncementItem(announcementTitle[i], announcementHint[i], announcementTime[i], 0));
         }
+        for (int i = 0; i < announcementTitle.length; i++) {
+            items.add(new AnnouncementItem(announcementTitle[i], announcementHint[i], announcementTime[i], 0));
+        }
+        for (int i = 0; i < announcementTitle.length; i++) {
+            items.add(new AnnouncementItem(announcementTitle[i], announcementHint[i], announcementTime[i], 0));
+        }
+
         adapter = new AnnouncementListAdapter(this);
         adapter.addItems(items);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView_announcement);

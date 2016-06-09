@@ -115,7 +115,6 @@ public class FileListAdapter extends ExpandableRecyclerAdapter<FileListAdapter.F
     }
 
     public class FileViewHolder extends ChildViewHolder {
-
         private TextView title;
         private TextView hint;
         private TextView author;

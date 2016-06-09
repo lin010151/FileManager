@@ -57,15 +57,18 @@ public class FilesActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         // TODO: 2016/6/2 获取档案列表
+        String[] fileTitle = getResources().getStringArray(R.array.file_title);
+        String[] fileHint = getResources().getStringArray(R.array.file_hint);
+        String[] fileAuthor = getResources().getStringArray(R.array.file_author);
+        String[] fileTime = getResources().getStringArray(R.array.file_time);
         List<FileItem> items = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
-            items.add(new FileItem("Title", "Hint", "Author", "Time"));
+        for (int i = 0; i < fileTitle.length; i++) {
+            items.add(new FileItem(fileTitle[i], fileHint[i], fileAuthor[i], fileTime[i]));
         }
         List<FileCategory> categories = new ArrayList<>();
-        categories.add(new FileCategory(items, "Failed"));
-        categories.add(new FileCategory(items, "Pending"));
-        categories.add(new FileCategory(items, "Auditing"));
-        categories.add(new FileCategory(items, "Audited"));
+        categories.add(new FileCategory(items, getString(R.string.example_category)));
+        categories.add(new FileCategory(items, getString(R.string.example_category)));
+        categories.add(new FileCategory(items, getString(R.string.example_category)));
 
         // TODO: 2016/6/2 初次显示数据
         adapter = new FileListAdapter(this, categories);

@@ -82,4 +82,5 @@
     <string name="navigation_drawer_settings">设置</string>
     <string name="search_hint">搜索档案...</string>
     <string name="search_label">搜索</string>
+    <string name="example_category">未分类</string>
 </resources>

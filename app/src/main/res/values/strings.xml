@@ -34,8 +34,10 @@
     <string name="card_file_auditing">Auditing</string>
     <string name="card_file_pending">Pending</string>
 
+    <!-- Strings used for examples -->
     <string name="example_name">John Smith</string>
     <string name="example_identity">Chief</string>
+    <string name="example_category">Uncategorized</string>
 
     <!-- Strings related to Settings -->
 
