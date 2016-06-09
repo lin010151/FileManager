@@ -7,11 +7,11 @@
     <string name="action_sign_in">登录或注册</string>
     <string name="action_sign_in_short">登录</string>
     <string name="action_sort">排序方式</string>
-    <string name="card_btn_announcement">公告</string>
+    <string name="card_btn_announcement">公告列表</string>
     <string name="card_btn_more_announcement">更多公告</string>
     <string name="card_btn_more_files">档案列表</string>
     <string name="card_file_auditing">审核中</string>
-    <string name="card_file_pass">审核通过</string>
+    <string name="card_file_pass">已通过</string>
     <string name="card_file_pending">待审核</string>
     <string name="card_file_summary">档案概览</string>
     <string name="card_no_notifications">没有新通知</string>
@@ -40,9 +40,9 @@
     <string name="pref_title_vibrate">震动</string>
     <string name="prompt_email">电子邮箱</string>
     <string name="prompt_password">密码（可选）</string>
-    <string name="title_activity_announcement_content">公告标题</string>
+    <string name="title_activity_announcement_content">公告详情</string>
     <string name="title_activity_announcement">公告</string>
-    <string name="title_activity_file_content">档案标题</string>
+    <string name="title_activity_file_content">档案资料</string>
     <string name="title_activity_files">档案</string>
     <string name="title_activity_login">登录</string>
     <string name="title_activity_main">首页</string>
@@ -74,13 +74,15 @@
         <item>360</item>
         <item>-1</item>
     </string-array>
-    <string name="card_btn_files">档案</string>
+    <string name="card_btn_files">档案列表</string>
     <string name="navigation_drawer_announcements">公告</string>
     <string name="navigation_drawer_files">档案</string>
     <string name="navigation_drawer_home">主页</string>
     <string name="navigation_drawer_logout">注销</string>
     <string name="navigation_drawer_settings">设置</string>
-    <string name="search_hint">搜索档案...</string>
+    <string name="search_hint">搜索档案…</string>
     <string name="search_label">搜索</string>
-    <string name="example_category">未分类</string>
+    <string name="example_category_auditing">审核中</string>
+    <string name="example_category_pending">待审核</string>
+    <string name="example_category_pass">已通过</string>
 </resources>

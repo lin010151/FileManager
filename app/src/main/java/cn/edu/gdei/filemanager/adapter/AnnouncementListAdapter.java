@@ -6,6 +6,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -33,6 +35,19 @@ public class AnnouncementListAdapter extends RecyclerView.Adapter<AnnouncementLi
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.bind(list.get(position));
+        final String title = list.get(position).getTitle();
+        final String hint = list.get(position).getHint();
+        final String time = list.get(position).getTime();
+        holder.layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, AnnouncementContentActivity.class);
+                intent.putExtra("title", title);
+                intent.putExtra("hint", hint);
+                intent.putExtra("time", time);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -51,18 +66,20 @@ public class AnnouncementListAdapter extends RecyclerView.Adapter<AnnouncementLi
         private final TextView title;
         private final TextView hint;
         private final TextView time;
+        private final RelativeLayout layout;
 
         public ViewHolder(View itemView) {
             super(itemView);
             title = (TextView) itemView.findViewById(R.id.title_announcement);
             hint = (TextView) itemView.findViewById(R.id.hint_announcement);
             time = (TextView) itemView.findViewById(R.id.time_announcement);
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    context.startActivity(new Intent(context, AnnouncementContentActivity.class));
-                }
-            });
+            layout = (RelativeLayout) itemView.findViewById(R.id.item_announcement);
+//            itemView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    context.startActivity(new Intent(context, AnnouncementContentActivity.class));
+//                }
+//            });
         }
 
         public void bind(AnnouncementItem item) {

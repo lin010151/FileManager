@@ -8,8 +8,8 @@
     <string name="title_activity_announcement">Announcement</string>
     <string name="title_activity_files">Files</string>
     <string name="title_activity_settings">Settings</string>
-    <string name="title_activity_file_content">File Title</string>
-    <string name="title_activity_announcement_content">Announcement Title</string>
+    <string name="title_activity_file_content">File Detail</string>
+    <string name="title_activity_announcement_content">Announcement Detail</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -37,7 +37,9 @@
     <!-- Strings used for examples -->
     <string name="example_name">John Smith</string>
     <string name="example_identity">Chief</string>
-    <string name="example_category">Uncategorized</string>
+    <string name="example_category_pass">Pass</string>
+    <string name="example_category_auditing">Auditing</string>
+    <string name="example_category_pending">Pending</string>
 
     <!-- Strings related to Settings -->
 

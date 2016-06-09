@@ -66,9 +66,9 @@ public class FilesActivity extends AppCompatActivity
             items.add(new FileItem(fileTitle[i], fileHint[i], fileAuthor[i], fileTime[i]));
         }
         List<FileCategory> categories = new ArrayList<>();
-        categories.add(new FileCategory(items, getString(R.string.example_category)));
-        categories.add(new FileCategory(items, getString(R.string.example_category)));
-        categories.add(new FileCategory(items, getString(R.string.example_category)));
+        categories.add(new FileCategory(items, getString(R.string.example_category_pass)));
+        categories.add(new FileCategory(items, getString(R.string.example_category_auditing)));
+        categories.add(new FileCategory(items, getString(R.string.example_category_pending)));
 
         // TODO: 2016/6/2 初次显示数据
         adapter = new FileListAdapter(this, categories);

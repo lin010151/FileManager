@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -106,6 +107,24 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
             holder.pass.setText(summary.getPass());
             holder.pending.setText(summary.getPending());
             holder.auditing.setText(summary.getAuditing());
+            holder.passLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    context.startActivity(new Intent(context, FilesActivity.class));
+                }
+            });
+            holder.auditingLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    context.startActivity(new Intent(context, FilesActivity.class));
+                }
+            });
+            holder.pendingLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    context.startActivity(new Intent(context, FilesActivity.class));
+                }
+            });
             holder.btnMore.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -180,16 +199,22 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
     public static class FileSummaryViewHolder extends ViewHolder {
         CardView cardView;
         TextView pass;
-        TextView pending;
         TextView auditing;
+        TextView pending;
+        RelativeLayout passLayout;
+        RelativeLayout auditingLayout;
+        RelativeLayout pendingLayout;
         Button btnMore;
 
         public FileSummaryViewHolder(final View itemView) {
             super(itemView);
             cardView = (CardView) itemView.findViewById(R.id.card_file_summary);
             pass = (TextView) itemView.findViewById(R.id.count_state_pass);
-            pending = (TextView) itemView.findViewById(R.id.count_state_pending);
             auditing = (TextView) itemView.findViewById(R.id.count_state_auditing);
+            pending = (TextView) itemView.findViewById(R.id.count_state_pending);
+            passLayout = (RelativeLayout) itemView.findViewById(R.id.card_file_summary_pass);
+            auditingLayout = (RelativeLayout) itemView.findViewById(R.id.card_file_summary_auditing);
+            pendingLayout = (RelativeLayout) itemView.findViewById(R.id.card_file_summary_pending);
             btnMore = (Button) itemView.findViewById(R.id.card_file_summary_btn_more);
         }
     }

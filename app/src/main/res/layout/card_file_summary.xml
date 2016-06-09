@@ -65,7 +65,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/card_file_summary_state_two"
+            android:id="@+id/card_file_summary_auditing"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:background="?android:attr/selectableItemBackground"
@@ -110,7 +110,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/card_file_summary_state_three"
+            android:id="@+id/card_file_summary_pending"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:background="?android:attr/selectableItemBackground"
