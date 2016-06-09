@@ -43,8 +43,8 @@
             android:layout_below="@+id/announcement_img_head"
             android:ellipsize="end"
             android:maxLines="2"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:padding="16dp"/>
+            android:padding="16dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -57,7 +57,7 @@
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="More"
+                android:text="@string/card_btn_more_announcement"
                 android:textColor="@color/colorAccent"/>
         </LinearLayout>
 

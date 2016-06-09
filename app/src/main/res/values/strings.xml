@@ -17,6 +17,18 @@
     <string name="action_sort">Sort by…</string>
     <string name="action_done">Done</string>
 
+    <string name="card_btn_more_announcement">More</string>
+    <string name="card_btn_more_files">More</string>
+    <string name="card_btn_announcement">Announcements</string>
+    <string name="card_no_notifications">No Notifications now.</string>
+    <string name="card_file_summary">Summary</string>
+    <string name="card_file_pass">Pass</string>
+    <string name="card_file_auditing">Auditing</string>
+    <string name="card_file_pending">Pending</string>
+
+    <string name="example_name">John Smith</string>
+    <string name="example_identity">Admin</string>
+
     <!-- Strings related to Settings -->
 
     <!-- Example General settings -->
