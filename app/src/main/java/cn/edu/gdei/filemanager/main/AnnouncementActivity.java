@@ -44,7 +44,7 @@ public class AnnouncementActivity extends AppCompatActivity
 
         List<AnnouncementItem> items = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
-            items.add(new AnnouncementItem("Title", "Hint", "Time"));
+            items.add(new AnnouncementItem("Title", "Hint", "Time", 1));
         }
         adapter = new AnnouncementListAdapter(this);
         adapter.addItems(items);

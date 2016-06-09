@@ -10,8 +10,11 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
-    <string name="logout">logout</string>
+    <string name="navigation_drawer_home">Home</string>
+    <string name="navigation_drawer_announcements">Announcements</string>
+    <string name="navigation_drawer_files">Files</string>
+    <string name="navigation_drawer_settings">Settings</string>
+    <string name="navigation_drawer_logout">logout</string>
 
     <string name="action_search">Search</string>
     <string name="action_refresh">Refresh</string>
@@ -21,6 +24,7 @@
     <string name="card_btn_more_announcement">More</string>
     <string name="card_btn_more_files">More</string>
     <string name="card_btn_announcement">Announcements</string>
+    <string name="card_btn_files">Files</string>
     <string name="card_no_notifications">No Notifications now.</string>
     <string name="card_file_summary">Summary</string>
     <string name="card_file_pass">Pass</string>

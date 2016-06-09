@@ -22,7 +22,8 @@ import java.util.List;
 
 import cn.edu.gdei.filemanager.R;
 import cn.edu.gdei.filemanager.adapter.HomeRecyclerViewAdapter;
-import cn.edu.gdei.filemanager.item.HomeAnnouncementItem;
+import cn.edu.gdei.filemanager.item.AnnouncementItem;
+import cn.edu.gdei.filemanager.item.FileSummary;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -45,10 +46,12 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_main);
         navigationView.setNavigationItemSelectedListener(this);
 
-        List<HomeAnnouncementItem> list = new ArrayList<>();
-        list.add(new HomeAnnouncementItem("A quick brown fox jumps over a lazy dog.", "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", R.drawable.side_nav_bar));
+        int mDataSetTypes[] = {HomeRecyclerViewAdapter.ANNOUNCEMENT, HomeRecyclerViewAdapter.FILE_SUMMARY};
+        FileSummary summary = new FileSummary(5, 6, 7);
+        List<AnnouncementItem> list = new ArrayList<>();
+        list.add(new AnnouncementItem("关于2016年端午节放假期间调停课的通知", "根据上级通知安排，2016年端午节期间6月9日至6月11日放假，共3天。其中 6月9日（星期四）为国家法定节假日，停课一天（包括公选课）；6月12日（星期日）补6月10日（星期五）的课。", "2016年5月31日", 0));
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView_main);
-        HomeRecyclerViewAdapter adapter = new HomeRecyclerViewAdapter(list, this);
+        HomeRecyclerViewAdapter adapter = new HomeRecyclerViewAdapter(mDataSetTypes, list, summary, this);
         LinearLayoutManager manager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(manager);
         recyclerView.setAdapter(adapter);

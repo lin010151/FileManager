@@ -7,11 +7,11 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_menu_home"
-            android:title="@string/title_activity_main" />
+            android:title="@string/navigation_drawer_home" />
         <item
             android:id="@+id/nav_announcement"
             android:icon="@drawable/ic_menu_announcement"
-            android:title="@string/title_activity_announcement" />
+            android:title="@string/navigation_drawer_announcements" />
         <item
             android:id="@+id/nav_files"
             android:icon="@drawable/ic_menu_file"
@@ -28,7 +28,7 @@
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/ic_menu_logout"
-            android:title="@string/title_activity_login" />
+            android:title="@string/logout" />
     </group>
 
 </menu>
