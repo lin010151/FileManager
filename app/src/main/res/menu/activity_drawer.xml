@@ -15,7 +15,7 @@
         <item
             android:id="@+id/nav_files"
             android:icon="@drawable/ic_menu_file"
-            android:title="@string/title_activity_files" />
+            android:title="@string/navigation_drawer_files" />
     </group>
 
     <group
@@ -24,11 +24,11 @@
         <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/ic_menu_settings"
-            android:title="@string/title_activity_settings" />
+            android:title="@string/navigation_drawer_settings" />
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/ic_menu_logout"
-            android:title="@string/logout" />
+            android:title="@string/navigation_drawer_logout" />
     </group>
 
 </menu>
