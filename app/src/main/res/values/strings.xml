@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">File Manager</string>
 
+    <string name="search_hint">Search Files&#8230;</string>
+    <string name="search_label">Search</string>
+
     <string name="title_activity_main">Home</string>
     <string name="title_activity_announcement">Announcement</string>
     <string name="title_activity_files">Files</string>

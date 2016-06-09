@@ -22,7 +22,6 @@
         <activity
             android:name=".main.AnnouncementActivity"
             android:label="@string/title_activity_announcement"
-            android:parentActivityName=".main.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -31,7 +30,6 @@
         <activity
             android:name=".main.FilesActivity"
             android:label="@string/title_activity_files"
-            android:parentActivityName=".main.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -43,7 +41,6 @@
         <activity
             android:name=".main.NewFileActivity"
             android:label="@string/title_activity_new_file"
-            android:parentActivityName=".main.FilesActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -52,7 +49,6 @@
         <activity
             android:name=".main.FileContentActivity"
             android:label="@string/title_activity_file_content"
-            android:parentActivityName=".main.FilesActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -60,11 +56,18 @@
         </activity>
         <activity
             android:name=".main.AnnouncementContentActivity"
-            android:label="@string/title_activity_announcement_content"
-            android:parentActivityName=".main.AnnouncementActivity">
+            android:label="@string/title_activity_announcement_content">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="cn.edu.gdei.filemanager.main.AnnouncementActivity" />
+        </activity>
+        <activity android:name=".main.SearchableActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
         </activity>
     </application>
 
