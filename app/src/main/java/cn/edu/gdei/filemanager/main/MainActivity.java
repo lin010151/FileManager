@@ -111,10 +111,8 @@ public class MainActivity extends AppCompatActivity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_main_search) {
-            return true;
-        } else if (id == R.id.action_main_refresh) {
-            refresh(item);
+        if (id == R.id.action_main_refresh) {
+            // TODO: 2016/6/10 刷新数据
             return true;
         }
 
@@ -141,27 +139,5 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    public void refresh(MenuItem refreshItem) {
-        completeRefresh(refreshItem);
-        ImageView iv = (ImageView) getLayoutInflater().inflate(R.layout.refresh_action_view, null);
-        refreshItem.setActionView(iv);
-        Animation rotation = AnimationUtils.loadAnimation(this, R.anim.clockwise_refresh);
-        rotation.setRepeatMode(Animation.RESTART);
-        rotation.setRepeatCount(Animation.INFINITE);
-        iv.startAnimation(rotation);
-        refreshItem.setActionView(iv);
-        // TODO: 2016/5/26 刷新内容
-    }
-
-    public void completeRefresh(MenuItem refreshItem) {
-        if (refreshItem != null) {
-            View view = refreshItem.getActionView();
-            if (view != null) {
-                view.clearAnimation();
-                refreshItem.setActionView(null);
-            }
-        }
     }
 }

@@ -20,6 +20,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 
 import com.bignerdranch.expandablerecyclerview.Adapter.ExpandableRecyclerAdapter;
 
@@ -106,9 +107,23 @@ public class FilesActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.files, menu);
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        SearchView searchView = (SearchView) menu.findItem(R.id.action_files_search).getActionView();
+        final SearchView searchView = (SearchView) menu.findItem(R.id.action_files_search).getActionView();
         SearchableInfo info = searchManager.getSearchableInfo(getComponentName());
         searchView.setSearchableInfo(info);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(searchView.getWindowToken(), 0);
+                searchView.clearFocus();
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
         return true;
     }
 
@@ -118,10 +133,7 @@ public class FilesActivity extends AppCompatActivity
         if (id == R.id.action_files_refresh) {
             // TODO: 2016/6/2 刷新
             return true;
-        } else if (id == R.id.action_files_search) {
-            // TODO: 2016/5/26 搜索
-            return true;
-        } else if (id == R.id.action_files_sort) {
+        }else if (id == R.id.action_files_sort) {
             // TODO: 2016/6/2 排序
             String[] filterType = getResources().getStringArray(R.array.file_sort_type);
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
