@@ -21,6 +21,8 @@
     <string name="action_sort">Sort by</string>
     <string name="action_done">Done</string>
 
+    <string name="search_hint">Search files...</string>
+
     <string name="card_btn_more_announcement">More</string>
     <string name="card_btn_more_files">More</string>
     <string name="card_btn_announcement">Announcements</string>
