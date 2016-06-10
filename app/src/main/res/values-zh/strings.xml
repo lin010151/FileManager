@@ -80,9 +80,20 @@
     <string name="navigation_drawer_home">主页</string>
     <string name="navigation_drawer_logout">注销</string>
     <string name="navigation_drawer_settings">设置</string>
-    <string name="search_hint">搜索档案…</string>
-    <string name="search_label">搜索</string>
     <string name="example_category_auditing">审核中</string>
     <string name="example_category_pending">待审核</string>
     <string name="example_category_pass">已通过</string>
+    <string-array name="file_sort_type">
+        <item>名称</item>
+        <item>拥有者</item>
+        <item>审核状态</item>
+        <item>发布时间</item>
+    </string-array>
+    <string name="alert_dialog_file_sort_negative">取消</string>
+    <string name="alert_dialog_file_sort_positive">确定</string>
+    <string name="alert_dialog_file_sort_title">排序</string>
+    <string name="alert_dialog_upload_confirm_message">确认上传？</string>
+    <string name="alert_dialog_upload_confirm_negative">否</string>
+    <string name="alert_dialog_upload_confirm_positive">是</string>
+    <string name="alert_dialog_upload_confirm_title">档案上传</string>
 </resources>

@@ -115,19 +115,19 @@ public class FilesActivity extends AppCompatActivity
             return true;
         } else if (id == R.id.action_files_sort) {
             // TODO: 2016/6/2 排序
-            String[] fileList = {"Title", "Author", "Statue", "Time"};
+            String[] filterType = getResources().getStringArray(R.array.file_sort_type);
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Sort By:");
-            builder.setSingleChoiceItems(fileList, -1, new DialogInterface.OnClickListener() {
+            builder.setTitle(getString(R.string.alert_dialog_file_sort_title));
+            builder.setSingleChoiceItems(filterType, -1, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int whichButton) {
 
                 }
             });
-            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            builder.setPositiveButton(getString(R.string.alert_dialog_file_sort_positive), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int whichButton) {
                 }
             });
-            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            builder.setNegativeButton(getString(R.string.alert_dialog_file_sort_negative), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int whichButton) {
                 }
             });

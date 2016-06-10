@@ -48,24 +48,20 @@ public class NewFileActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_newfile_done) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Warning");
-            builder.setMessage("Confirm?");
+            builder.setTitle(getString(R.string.alert_dialog_upload_confirm_title));
+            builder.setMessage(getString(R.string.alert_dialog_upload_confirm_message));
             builder.setCancelable(true);
-            builder.setPositiveButton(
-                    "Yes",
-                    new DialogInterface.OnClickListener() {
-                        // TODO: 2016/6/2 确认提交
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.cancel();
-                        }
-                    });
-            builder.setNegativeButton(
-                    "No",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.cancel();
-                        }
-                    });
+            builder.setPositiveButton(getString(R.string.alert_dialog_upload_confirm_positive), new DialogInterface.OnClickListener() {
+                // TODO: 2016/6/2 确认提交
+                public void onClick(DialogInterface dialog, int id) {
+                    dialog.cancel();
+                }
+            });
+            builder.setNegativeButton(getString(R.string.alert_dialog_upload_confirm_negative), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    dialog.cancel();
+                }
+            });
             AlertDialog alert = builder.create();
             alert.show();
             return true;

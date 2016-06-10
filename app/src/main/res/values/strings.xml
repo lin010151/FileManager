@@ -1,9 +1,6 @@
 <resources>
     <string name="app_name">File Manager</string>
 
-    <string name="search_hint">Search Files&#8230;</string>
-    <string name="search_label">Search</string>
-
     <string name="title_activity_main">Home</string>
     <string name="title_activity_announcement">Announcement</string>
     <string name="title_activity_files">Files</string>
@@ -33,6 +30,20 @@
     <string name="card_file_pass">Pass</string>
     <string name="card_file_auditing">Auditing</string>
     <string name="card_file_pending">Pending</string>
+
+    <string name="alert_dialog_file_sort_title">Sort By:</string>
+    <string name="alert_dialog_file_sort_positive">OK</string>
+    <string name="alert_dialog_file_sort_negative">Cancel</string>
+    <string-array name="file_sort_type">
+        <item>Title</item>
+        <item>Author</item>
+        <item>State</item>
+        <item>Time</item>
+    </string-array>
+    <string name="alert_dialog_upload_confirm_title">Upload</string>
+    <string name="alert_dialog_upload_confirm_message">Confirm?</string>
+    <string name="alert_dialog_upload_confirm_positive">Yes</string>
+    <string name="alert_dialog_upload_confirm_negative">No</string>
 
     <!-- Strings used for examples -->
     <string name="example_name">John Smith</string>
