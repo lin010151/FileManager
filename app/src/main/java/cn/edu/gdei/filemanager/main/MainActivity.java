@@ -42,19 +42,26 @@ public class MainActivity extends AppCompatActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string
+                .navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_main);
         navigationView.setNavigationItemSelectedListener(this);
 
-        int mDataSetTypes[] = {HomeRecyclerViewAdapter.DEFAULT, HomeRecyclerViewAdapter.FILE_SUMMARY};
-        FileSummary summary = new FileSummary(5, 6, 7);
+        int mDataSetTypes[] = {HomeRecyclerViewAdapter.DEFAULT, HomeRecyclerViewAdapter
+                .FILE_SUMMARY};
+        FileSummary summary = new FileSummary(5, 5, 5);
         List<AnnouncementItem> list = new ArrayList<>();
-        list.add(new AnnouncementItem("关于2016年端午节放假期间调停课的通知", "根据上级通知安排，2016年端午节期间6月9日至6月11日放假，共3天。其中 6月9日（星期四）为国家法定节假日，停课一天（包括公选课）；6月12日（星期日）补6月10日（星期五）的课。", "2016年5月31日", R.drawable.side_nav_bar));
+        list.add(new AnnouncementItem("关于2016年端午节放假期间调停课的通知",
+                "根据上级通知安排，2016年端午节期间6月9日至6月11日放假，共3天。" +
+                        "其中6月9日（星期四）为国家法定节假日，停课一天（包括公选课）；" +
+                        "6月12日（星期日）补6月10日（星期五）的课。", "2016年5月31日",
+                R.drawable.side_nav_bar));
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView_main);
-        HomeRecyclerViewAdapter adapter = new HomeRecyclerViewAdapter(mDataSetTypes, list, summary, this);
+        HomeRecyclerViewAdapter adapter = new HomeRecyclerViewAdapter(mDataSetTypes, list,
+                summary, this);
         LinearLayoutManager manager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(manager);
         recyclerView.setAdapter(adapter);
@@ -84,13 +91,15 @@ public class MainActivity extends AppCompatActivity
         getMenuInflater().inflate(R.menu.main, menu);
 
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        final SearchView searchView = (SearchView) menu.findItem(R.id.action_main_search).getActionView();
+        final SearchView searchView = (SearchView) menu.findItem(R.id.action_main_search)
+                .getActionView();
         SearchableInfo info = searchManager.getSearchableInfo(getComponentName());
         searchView.setSearchableInfo(info);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context
+                        .INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(searchView.getWindowToken(), 0);
                 searchView.clearFocus();
                 return false;

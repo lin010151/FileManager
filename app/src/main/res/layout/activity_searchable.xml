@@ -4,4 +4,12 @@
     android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="cn.edu.gdei.filemanager.main.SearchableActivity" />
+    tools:context="cn.edu.gdei.filemanager.main.SearchableActivity">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        tools:listitem="@layout/item_files" />
+</android.support.design.widget.CoordinatorLayout>
