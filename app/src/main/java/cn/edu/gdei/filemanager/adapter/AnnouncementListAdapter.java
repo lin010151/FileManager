@@ -74,12 +74,6 @@ public class AnnouncementListAdapter extends RecyclerView.Adapter<AnnouncementLi
             hint = (TextView) itemView.findViewById(R.id.hint_announcement);
             time = (TextView) itemView.findViewById(R.id.time_announcement);
             layout = (RelativeLayout) itemView.findViewById(R.id.item_announcement);
-//            itemView.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    context.startActivity(new Intent(context, AnnouncementContentActivity.class));
-//                }
-//            });
         }
 
         public void bind(AnnouncementItem item) {
