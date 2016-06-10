@@ -1,11 +1,12 @@
 package cn.edu.gdei.filemanager.main;
 
 import android.app.SearchManager;
+import android.app.SearchableInfo;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -30,8 +31,6 @@ import cn.edu.gdei.filemanager.item.FileSummary;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
-    private MenuItem refreshItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +57,7 @@ public class MainActivity extends AppCompatActivity
         LinearLayoutManager manager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(manager);
         recyclerView.setAdapter(adapter);
+
     }
 
     @Override
@@ -82,6 +82,11 @@ public class MainActivity extends AppCompatActivity
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
 
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView = (SearchView) menu.findItem(R.id.action_main_search).getActionView();
+        SearchableInfo info = searchManager.getSearchableInfo(getComponentName());
+        searchView.setSearchableInfo(info);
+
         return true;
     }
 
@@ -91,10 +96,7 @@ public class MainActivity extends AppCompatActivity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_main_search) {
-            // TODO: 2016/5/26 搜索活动
             return true;
         } else if (id == R.id.action_main_refresh) {
             refresh(item);
@@ -127,7 +129,6 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void refresh(MenuItem refreshItem) {
-        this.refreshItem = refreshItem;
         completeRefresh(refreshItem);
         ImageView iv = (ImageView) getLayoutInflater().inflate(R.layout.refresh_action_view, null);
         refreshItem.setActionView(iv);

@@ -96,5 +96,6 @@
     <string name="alert_dialog_upload_confirm_negative">否</string>
     <string name="alert_dialog_upload_confirm_positive">是</string>
     <string name="alert_dialog_upload_confirm_title">档案上传</string>
-    <string name="search_hint">搜索档案...</string>
+    <string name="search_hint">搜索档案</string>
+    <string name="title_activity_searchable">搜索结果</string>
 </resources>
