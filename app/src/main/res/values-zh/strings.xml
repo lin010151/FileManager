@@ -98,4 +98,10 @@
     <string name="alert_dialog_upload_confirm_title">档案上传</string>
     <string name="search_hint">搜索档案</string>
     <string name="title_activity_searchable">搜索结果</string>
+    <string name="no_results">找不到含有“%s”字样的档案</string>
+    <plurals name="search_results">
+        <item quantity="one">找到%1$d份含有“%2$s”字样的档案</item>
+        <item quantity="other">找到%1$d份含有“%2$s”字样的档案</item>
+    </plurals>
+    <string name="search_hint_dismiss">关闭</string>
 </resources>

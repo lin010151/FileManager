@@ -23,6 +23,12 @@
     <string name="action_done">Done</string>
 
     <string name="search_hint">Search files</string>
+    <string name="no_results">No files found for \"%s\"</string>
+    <plurals name="search_results">
+        <item quantity="one">Found %1$d file for \"%2$s\": </item>
+        <item quantity="other">Found %1$d files for \"%2$s\": </item>
+    </plurals>
+    <string name="search_hint_dismiss">Dismiss</string>
 
     <string name="card_btn_more_announcement">More</string>
     <string name="card_btn_more_files">More</string>
