@@ -49,16 +49,10 @@
             android:name=".main.FileContentActivity"
             android:label="@string/title_activity_file_content"
             android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="cn.edu.gdei.filemanager.main.FilesActivity" />
         </activity>
         <activity
             android:name=".main.AnnouncementContentActivity"
             android:label="@string/title_activity_announcement_content">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="cn.edu.gdei.filemanager.main.AnnouncementActivity" />
         </activity>
         <activity android:name=".main.SearchableActivity"
             android:label="@string/title_activity_searchable">

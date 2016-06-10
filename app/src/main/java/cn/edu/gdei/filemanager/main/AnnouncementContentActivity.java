@@ -3,6 +3,7 @@ package cn.edu.gdei.filemanager.main;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import cn.edu.gdei.filemanager.R;
@@ -27,5 +28,16 @@ public class AnnouncementContentActivity extends AppCompatActivity {
         titleView.setText(title);
         timeView.setText(time);
         hintView.setText(hint);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
