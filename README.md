@@ -1,2 +1,2 @@
 # FileManager
-广二师档案管理器 demo
+档案管理器 demo
